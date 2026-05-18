@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rishika ❤️ Milind</title>
+
+<style>
+
+/* ================= BASE ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#fff0f5;
+  color:#333;
+  overflow-x:hidden;
+}
+
+/* ================= SECTIONS ================= */
+
+section{
+  padding:70px 20px;
+}
+
+.center{text-align:center;}
+
+h1,h2,h3{
+  color:#ff4d6d;
+  margin-bottom:15px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  background:linear-gradient(to bottom,#ffd6e0,#fff0f5);
+}
+
+/* ================= CARDS ================= */
+
+.card{
+  background:white;
+  padding:20px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* ================= GALLERY ================= */
+
+.gallery{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-top:20px;
+}
+
+.gallery img{
+  width:100%;
+  border-radius:15px;
+}
+
+/* ================= BUTTON ================= */
+
+button{
+  margin-top:20px;
+  padding:12px 24px;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+/* ================= HEARTS ================= */
+
+.heart{
+  position:fixed;
+  bottom:-50px;
+  color:#ff4d6d;
+  font-size:20px;
+  animation:floatUp linear infinite;
+  opacity:0.4;
+  z-index:-1;
+  pointer-events:none;
+  white-space:nowrap;
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(0);opacity:0;}
+  10%{opacity:0.5;}
+  100%{transform:translateY(-110vh);opacity:0;}
+}
+
+/* ================= STAR SECTION ================= */
+
+#stars span{
+  font-size:28px;
+  margin:8px;
+  cursor:pointer;
+}
+
+/* ================= FINAL ================= */
+
+.final{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+  background:linear-gradient(to bottom,#ffd6e0,#fff0f5);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero">
+
+<h1>Rishika ❤️ Milind</h1>
+<p>2 Years Of Us 💖</p>
+
+<button onclick="document.getElementById('countdown').scrollIntoView({behavior:'smooth'})">
+Start Our Journey
+</button>
+
+</section>
+
+<!-- ================= COUNTDOWN ================= -->
+
+<section id="countdown" class="center">
+
+<h2>We've Been Together For ⏳</h2>
+<h1 id="timer"></h1>
+
+</section>
+
+<!-- ================= STORY ================= -->
+
+<section>
+
+<h2 class="center">Our Story 💫</h2>
+
+<div class="card">When we first talked, everything started from here ❤️</div>
+<div class="card">Late night chats became our comfort 🌙</div>
+<div class="card">We laughed, fought, and still stayed 🫶</div>
+
+</section>
+
+<!-- ================= GALLERY ================= -->
+
+<section>
+
+<h2 class="center">Our Memories 📸</h2>
+
+<div class="gallery">
+<img src="img1.jpg">
+<img src="img2.jpg">
+<img src="img3.jpg">
+<img src="img4.jpg">
+</div>
+
+</section>
+
+<!-- ================= VOICE ================= -->
+
+<section class="center">
+
+<h2>Listen To Me 🎧</h2>
+
+<button onclick="playAudio()">Play Voice Note</button>
+<audio id="voice" src="voice.mp3"></audio>
+
+</section>
+
+<!-- ================= LOVE GENERATOR ================= -->
+
+<section class="center">
+
+<h2>Why I Love You 💌</h2>
+
+<p id="loveText">Click below ❤️</p>
+
+<button onclick="generateLove()">Click Me</button>
+
+</section>
+
+<!-- ================= STATS ================= -->
+
+<section class="center">
+
+<h2>Our Relationship Stats 📊</h2>
+
+<div class="card">
+<p>Days Together ❤️ : Forever</p>
+<p>Late Night Talks 🌙 : Countless</p>
+<p>Love 💖 : Endless</p>
+</div>
+
+</section>
+
+<!-- ================= STARS ================= -->
+
+<section class="center">
+
+<h2>Tap The Stars ✨</h2>
+
+<div id="stars"></div>
+<p id="starMsg"></p>
+
+</section>
+
+<!-- ================= FUTURE ================= -->
+
+<section class="center">
+
+<h2>Our Future Together ✈️</h2>
+
+<div class="card">
+<p>More memories, more love, forever ❤️</p>
+</div>
+
+</section>
+
+<!-- ================= REPLY SYSTEM ================= -->
+
+<section class="center">
+
+<h2>Reply to Me 💌</h2>
+
+<div class="card">
+
+<textarea id="replyText" style="width:100%;height:120px;padding:10px;border-radius:10px;"></textarea>
+
+<button onclick="saveReply()">Send Reply 💖</button>
+
+</div>
+
+<div class="card">
+
+<h3>Her Replies 🫶</h3>
+<div id="replyBox"></div>
+
+</div>
+
+</section>
+
+<!-- ================= FINAL ================= -->
+
+<section class="final">
+
+<h1>For You, Always ❤️</h1>
+
+<p>I will always choose you.</p>
+
+</section>
+
+<!-- ================= SCRIPT ================= -->
+
+<script>
+
+/* TIMER */
+const startDate = new Date("2024-04-01");
+
+setInterval(()=>{
+let now = new Date();
+let diff = now - startDate;
+
+document.getElementById("timer").innerHTML =
+Math.floor(diff/(1000*60*60*24)) + " Days ❤️";
+
+},1000);
+
+/* AUDIO */
+function playAudio(){
+document.getElementById("voice").play();
+}
+
+/* LOVE */
+const reasons=[
+"You are my peace ❤️",
+"You are my home 🏠",
+"You make me smile 😊",
+"You are everything 💖"
+];
+
+function generateLove(){
+document.getElementById("loveText").innerText =
+reasons[Math.floor(Math.random()*reasons.length)];
+}
+
+/* STARS */
+const messages=[
+"I love you ❤️",
+"You are my comfort 🫶",
+"Forever 💖",
+"You are mine 🌙"
+];
+
+const stars=document.getElementById("stars");
+
+for(let i=0;i<20;i++){
+let s=document.createElement("span");
+s.innerHTML="⭐";
+
+s.onclick=function(){
+document.getElementById("starMsg").innerText =
+messages[Math.floor(Math.random()*messages.length)];
+};
+
+stars.appendChild(s);
+}
+
+/* HEARTS + MESSAGES */
+
+const heartMessages=[
+"I love you ❤️",
+"You are my safe place 🫶",
+"Forever yours 🌙",
+"You are home 🏠"
+];
+
+function createHeart(){
+
+const h=document.createElement("div");
+h.classList.add("heart");
+
+const isText=Math.random()<0.3;
+
+if(isText){
+h.innerHTML=heartMessages[Math.floor(Math.random()*heartMessages.length)];
+h.style.fontSize="14px";
+}else{
+h.innerHTML="❤️";
+h.style.fontSize=(Math.random()*20+10)+"px";
+}
+
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(Math.random()*5+5)+"s";
+
+document.body.appendChild(h);
+
+setTimeout(()=>h.remove(),10000);
+
+}
+
+setInterval(createHeart,400);
+
+/* REPLY SYSTEM */
+
+function loadReplies(){
+let data=JSON.parse(localStorage.getItem("replies"))||[];
+let box=document.getElementById("replyBox");
+box.innerHTML="";
+data.forEach(m=>{
+let d=document.createElement("div");
+d.className="card";
+d.style.marginTop="10px";
+d.innerText=m;
+box.appendChild(d);
+});
+}
+
+function saveReply(){
+let text=document.getElementById("replyText").value;
+if(text.trim()=="") return;
+
+let data=JSON.parse(localStorage.getItem("replies"))||[];
+data.push(text);
+
+localStorage.setItem("replies",JSON.stringify(data));
+
+document.getElementById("replyText").value="";
+loadReplies();
+}
+
+loadReplies();
+
+</script>
+
+</body>
+</html>
